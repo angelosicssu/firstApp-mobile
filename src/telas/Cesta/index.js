@@ -1,26 +1,24 @@
-import React from "react";
-import { Image, StyleSheet, Text, View } from 'react-native';
-import Topo from "./components/Topo";
-import Detalhes from "./components/Detalhes";
+import React from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
+import Topo from './componentes/Topo'
+import Detalhes from './componentes/Detalhes'
+import Itens from './componentes/Itens';
 
+export default function Cesta({ topo, detalhes, itens }) {
+  return <ScrollView>
+    <Topo {...topo} />
 
-export default function Cesta() {
-    return <>
-    <Topo />
-
-        <View style={estilos.cesta}>
-            <Detalhes />
-        </View>
-    </>
+    <View style={estilos.cesta}>
+      <Detalhes {...detalhes} />
+      <Itens {...itens}/>
+    </View>
+  </ScrollView>
 }
 
 const estilos = StyleSheet.create({
-
-    cesta: {
-        paddingVertical: 8,
-        paddingHorizontal: 16
-    },
-
-    
+  cesta: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
 });
